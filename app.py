@@ -25,9 +25,9 @@ class ToDoItem(db.Model):
             'is_completed': self.is_completed
         }
 
-if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
+# if __name__ == "__main__":
+#     with app.app_context():
+#         db.create_all()
 
 @app.route('/api/')
 def index():
@@ -93,4 +93,10 @@ def done(id):
 
     except Exception as e:
         return jsonify(success=False, message=str(e)), 500
+    
+
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
     
